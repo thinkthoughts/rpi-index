@@ -1,0 +1,107 @@
+{
+  "group": "complexity/eth",
+  "updated": "2026-11-02",
+  "notes": "Initial research index; statuses distinguish published/reported verification from checks performed inside this index repository.",
+  "points": [
+    {
+      "id": "RPI-ETH-001",
+      "kind": "theorem",
+      "title": "OpenAI fixed-width exact #SAT complexity bound",
+      "statement": "For each fixed k >= 2, exact counting on canonical k-CNF inputs in deterministic time polynomial in input bit length times 2^{O_k(n (log log n)^2 / sqrt(log n))}, with polynomial visited tape cells.",
+      "source": "https://github.com/openai/math/blob/main/lean/docs/378.md",
+      "declaration": "OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.Claim",
+      "source_status": "published_kernel_checked",
+      "local_status": "not_reproduced_here"
+    },
+    {
+      "id": "RPI-ETH-002",
+      "kind": "theorem",
+      "title": "Anthropic uniform exact #k-SAT main theorem",
+      "statement": "One finite-alphabet FinTM2 machine counts assignments for the stipulated k-CNF family within 2^{C min(km/sqrt(log m), k^2 n log log n/sqrt(log n))} steps, under the formal input conditions.",
+      "source": "https://github.com/anthropics/formal-math/blob/main/eth/MainResults.lean",
+      "declaration": "MainResults.MainTheorem",
+      "source_status": "published_kernel_checked",
+      "local_status": "not_reproduced_here"
+    },
+    {
+      "id": "RPI-ETH-003",
+      "kind": "theorem",
+      "title": "Anthropic formal ETH refutation",
+      "statement": "MainResults.ETHIsFalse is the negation of 0 < MainResults.s 3, with s defined through FinTM2 decision algorithms on encClauses.",
+      "source": "https://github.com/anthropics/formal-math/blob/main/eth/MainResults.lean",
+      "declaration": "MainResults.ethIsFalse",
+      "source_status": "published_kernel_checked",
+      "local_status": "not_reproduced_here"
+    },
+    {
+      "id": "RPI-ETH-004",
+      "kind": "reference",
+      "title": "Standard deterministic Exponential Time Hypothesis",
+      "statement": "The standard positive-rate hypothesis for deciding 3-SAT, with conventional algorithm models and reasonable encodings; distinguish its definition from formal machine-model versions.",
+      "source": "https://github.com/anthropics/formal-math/blob/main/eth/MainResults.lean",
+      "declaration": null,
+      "source_status": "reference_definition",
+      "local_status": "not_applicable"
+    },
+    {
+      "id": "RPI-ETH-005",
+      "kind": "implication",
+      "title": "Anthropic main theorem implies Anthropic formal ETH refutation",
+      "statement": "The formal counting bound yields the project's formal negation of ETH.",
+      "source": "https://github.com/anthropics/formal-math/tree/main/eth",
+      "declaration": null,
+      "source_status": "published_kernel_checked",
+      "local_status": "not_reproduced_here"
+    },
+    {
+      "id": "RPI-ETH-006",
+      "kind": "implication",
+      "title": "OpenAI claim implies Anthropic ETHIsFalse",
+      "statement": "A third-party bridge claims OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.Claim -> MainResults.ETHIsFalse; source identity across different toolchains remains an explicit qualification.",
+      "source": "https://github.com/TSavo/eth-bridge",
+      "declaration": "Bridge.ethIsFalse_of_claim",
+      "source_status": "third_party_kernel_check_reported",
+      "local_status": "not_reproduced_here"
+    },
+    {
+      "id": "RPI-ETH-007",
+      "kind": "implication",
+      "title": "Formal ETH refutation implies textbook ETH refutation",
+      "statement": "Requires an explicit account of encoding conversion and simulation overhead between the formal machine and conventional deterministic algorithms; distinguish each existing Lean bridge from remaining informal interpretation.",
+      "source": "https://github.com/anthropics/formal-math/blob/main/eth/MainResults.lean",
+      "declaration": null,
+      "source_status": "interpretation_requires_audit",
+      "local_status": "not_reproduced_here"
+    },
+    {
+      "id": "RPI-ETH-008",
+      "kind": "theorem",
+      "title": "Verified OpenAI-378 bridge refutes PositiveRateETH",
+      "statement": "OAI.Bridges.ETH.not_positiveRateETH : ¬ OAI.ParityWL.Complexity.PositiveRateETH. The proof connects the bounded-width SAT theorem to the ParityLifts machine model by a canonical input converter and polynomial-overhead simulation.",
+      "source": "https://github.com/thinkthoughts/math/blob/81ec97cd23d21675cee4ee76768fffba33a61e17/lean/OAI/Bridges/ETH/FinalImplication.lean",
+      "declaration": "OAI.Bridges.ETH.not_positiveRateETH",
+      "source_commit": "81ec97cd23d21675cee4ee76768fffba33a61e17",
+      "evidence": "https://github.com/thinkthoughts/math/blob/81708f93fa4a4f72931ebf87aaefeaa602f85ab2/docs/ETH_BRIDGE_REPORT.md",
+      "axioms_reported": ["propext", "Classical.choice", "Quot.sound"],
+      "source_status": "project_verified_vps",
+      "local_status": "not_reproduced_here"
+    },
+    {
+      "id": "RPI-ETH-009",
+      "kind": "reference",
+      "title": "OpenAI ParityLifts PositiveRateETH predicate",
+      "statement": "Exists δ > 0 such that no finite-alphabet multitape machine decides the formal 3-CNF language in time C (L+1)^d 2^{δ N}, for any positive C and natural d. This is a formal predicate, with textbook ETH correspondence tracked separately.",
+      "source": "https://github.com/thinkthoughts/math/blob/81ec97cd23d21675cee4ee76768fffba33a61e17/lean/OAI/Combinatorics/ParityLifts/SATChoice.lean",
+      "declaration": "OAI.ParityWL.Complexity.PositiveRateETH",
+      "source_commit": "81ec97cd23d21675cee4ee76768fffba33a61e17",
+      "source_status": "reference_definition",
+      "local_status": "not_applicable"
+    }
+  ],
+  "edges": [
+    {"from": "RPI-ETH-002", "to": "RPI-ETH-003", "relation": "implies", "via": "RPI-ETH-005"},
+    {"from": "RPI-ETH-001", "to": "RPI-ETH-003", "relation": "implies", "via": "RPI-ETH-006"},
+    {"from": "RPI-ETH-003", "to": "RPI-ETH-004", "relation": "refutes", "via": "RPI-ETH-007"},
+    {"from": "RPI-ETH-001", "to": "RPI-ETH-009", "relation": "refutes", "via": "RPI-ETH-008"}
+  ]
+}
