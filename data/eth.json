@@ -20,6 +20,7 @@
       "statement": "One finite-alphabet FinTM2 machine counts assignments for the stipulated k-CNF family within 2^{C min(km/sqrt(log m), k^2 n log log n/sqrt(log n))} steps, under the formal input conditions.",
       "source": "https://github.com/anthropics/formal-math/blob/main/eth/MainResults.lean",
       "declaration": "MainResults.MainTheorem",
+      "source_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
       "source_status": "published_kernel_checked",
       "local_status": "not_reproduced_here"
     },
@@ -30,6 +31,7 @@
       "statement": "MainResults.ETHIsFalse is the negation of 0 < MainResults.s 3, with s defined through FinTM2 decision algorithms on encClauses.",
       "source": "https://github.com/anthropics/formal-math/blob/main/eth/MainResults.lean",
       "declaration": "MainResults.ethIsFalse",
+      "source_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
       "source_status": "published_kernel_checked",
       "local_status": "not_reproduced_here"
     },
@@ -50,6 +52,7 @@
       "statement": "The formal counting bound yields the project's formal negation of ETH.",
       "source": "https://github.com/anthropics/formal-math/tree/main/eth",
       "declaration": null,
+      "source_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
       "source_status": "published_kernel_checked",
       "local_status": "not_reproduced_here"
     },
@@ -60,6 +63,7 @@
       "statement": "A third-party bridge claims OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.Claim -> MainResults.ETHIsFalse; source identity across different toolchains remains an explicit qualification.",
       "source": "https://github.com/TSavo/eth-bridge",
       "declaration": "Bridge.ethIsFalse_of_claim",
+      "source_commit": "34f9ca204bed7fa6c595e56966773726e98dd3fd",
       "source_status": "third_party_kernel_check_reported",
       "local_status": "not_reproduced_here"
     },
