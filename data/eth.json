@@ -100,12 +100,27 @@
       "source_commit": "81ec97cd23d21675cee4ee76768fffba33a61e17",
       "source_status": "reference_definition",
       "local_status": "not_applicable"
+    },
+    {
+      "id": "RPI-ETH-010",
+      "kind": "implication",
+      "title": "OpenAI ParityLifts PositiveRateETH refutation implies Anthropic ETHIsFalse",
+      "statement": "OAI.Bridges.AnthropicETH.not_positiveRateETH_implies_ethIsFalse : ¬ OAI.ParityWL.Complexity.PositiveRateETH → MainResults.ETHIsFalse. Proved from the two definition sets only (ParityLifts SATChoice closure; byte-identical MainResults.lean) through a linear-time ParityLifts-to-FinTM2 simulation and a verified polynomial-time input converter; the dependency audit excludes MainResults.ethIsFalse, OpenAI's SAT theorem and OAI.Bridges.ETH.not_positiveRateETH.",
+      "source": "https://github.com/thinkthoughts/math/blob/d6b79b7d1/lean/OAI/Bridges/AnthropicETH/Main.lean",
+      "declaration": "OAI.Bridges.AnthropicETH.not_positiveRateETH_implies_ethIsFalse",
+      "source_commit": "d6b79b7d1",
+      "evidence": "https://github.com/thinkthoughts/math/blob/eth-bridge/rpi-378.3a/docs/RPI-378.3d_REPORT.md",
+      "comparator": "lean/ComparatorChallenges/AnthropicETHCrossFormalization.json: exit 0, Lean kernel accepted on the VPS (nanoda disabled); standalone nanoda replay accepted in the harness",
+      "axioms_reported": ["propext", "Classical.choice", "Quot.sound"],
+      "source_status": "project_verified_vps",
+      "local_status": "not_reproduced_here"
     }
   ],
   "edges": [
     {"from": "RPI-ETH-002", "to": "RPI-ETH-003", "relation": "implies", "via": "RPI-ETH-005"},
     {"from": "RPI-ETH-001", "to": "RPI-ETH-003", "relation": "implies", "via": "RPI-ETH-006"},
     {"from": "RPI-ETH-003", "to": "RPI-ETH-004", "relation": "refutes", "via": "RPI-ETH-007"},
-    {"from": "RPI-ETH-001", "to": "RPI-ETH-009", "relation": "refutes", "via": "RPI-ETH-008"}
+    {"from": "RPI-ETH-001", "to": "RPI-ETH-009", "relation": "refutes", "via": "RPI-ETH-008"},
+    {"from": "RPI-ETH-008", "to": "RPI-ETH-003", "relation": "implies", "via": "RPI-ETH-010"}
   ]
 }

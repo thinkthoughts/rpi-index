@@ -13,7 +13,7 @@ See [`data/eth.json`](data/eth.json). It separates:
 - textbook ETH and the machine/encoding correspondences needed to interpret formal propositions;
 - the independently developed OpenAI-to-Anthropic bridge, without treating a reported check as our own reproduction.
 
-The nine initial IDs are provisional but stable. New readings should add evidence and edges rather than silently change the meaning of an existing ID.
+The nine initial IDs are provisional but stable; `RPI-ETH-010` records the VPS-verified implication from ParityLifts' `¬ PositiveRateETH` to Anthropic's `ETHIsFalse`. New readings should add evidence and edges rather than silently change the meaning of an existing ID.
 
 ## Validation
 
